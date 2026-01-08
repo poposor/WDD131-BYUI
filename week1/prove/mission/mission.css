@@ -3,16 +3,26 @@ body {
     padding: 30px;
 }
 #content {
+    line-height: 1.5;
     border: 2px lightgray solid;
     text-align: center;
     padding: 50px 100px 20px 100px;
+    max-width: 500px;
 }
 header p {
     color: #0077cc;
+    padding-bottom: 0;
+}
+hr {
+    margin: 0;
+    color: lightgray;
 }
 main {
     text-align: left;
 }
 #logo {
-    width: 200px;
+    width: 100px;
+}
+li {
+    margin-bottom: 10px;
 }
