@@ -44,7 +44,7 @@
 </head>
 <body>
     <div id="content">
-        <h1>HTML, CSS, and JS</h1>
+        <h1 id="title">HTML, CSS, and JS</h1>
         <p>The foundational technologies that power websites and web applications</p>
         <hr>
         <img src="https://wddbyui.github.io/wdd131/images/trifecta.png" alt="JS, CSS, and HTML logos">
@@ -65,6 +65,15 @@
                 <li>Without JavaScript nothing on the page responds dynamically to user actions.</li>
             </ul>
         </div>
+
+        <label for="webdevlist">Choose One:</label>
+        <select name="code" id="webdevlist">
+            <option>Choose One:</option>
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>
+            <option value="js">JavaScript</option>
+        </select>                   
+        <script src="../../week2/ponder_dom_basics/dom.js"></script>
     </div>
 </body>
 </html>
