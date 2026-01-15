@@ -1,10 +1,18 @@
 body {
     background-color: white;
     padding: 30px;
+    color: black;
+    display:flex;
+    justify-content: center;
+} 
+#themeDropdown {
+    position: absolute;
+    top: 10px;
+    left: 10px;
 }
 #content {
     line-height: 1.5;
-    border: 2px lightgray solid;
+    border: 1px lightgray solid;
     text-align: center;
     padding: 50px 100px 20px 100px;
     max-width: 500px;
@@ -21,7 +29,7 @@ main {
     text-align: left;
 }
 #logo {
-    width: 100px;
+    width: 120px;
 }
 li {
     margin-bottom: 10px;
