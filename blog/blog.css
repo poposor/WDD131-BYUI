@@ -16,31 +16,40 @@ nav ul li a {
     text-decoration: none;
     padding: 0.5em;
 }
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
 #book-list {
-    margin-top: 3rem;
     margin-bottom: 3rem;
+    max-width: 900px;
 }
 #book-list hr {
     margin-top: 3rem;
+    margin-bottom: -3rem;
 }
 
 .book {
+    margin-top: 3em;
+    /* max-width: 900px; */
     display: grid;
     grid-template-rows: auto auto;
     grid-template-columns: auto auto;
     text-align: right;
 }
-#info {
+.info {
     grid-row: 1/2;
     grid-column: 2/3;
     display: grid;
     margin: 1em;
 }
-#info p {
+.info p {
     margin: 0.5em 1em;
     text-align: right;
 }
-#big-info {
+.big-info {
     display: grid;
     grid-row: 2/3;
     grid-column: 1/2;
@@ -57,19 +66,20 @@ nav ul li a {
     text-align: left;
 }
 
+
 @media (min-width: 700px) {
     #book-list hr {
         display: none;
     }
     .book {
-        grid-template-columns: auto auto;
+        grid-template-columns: 1fr 4fr;
         grid-template-areas: none;
     }
-    #info {
+    .info {
         grid-column: 1/2;
         grid-row: 1/2;
     }
-    #big-info {
+    .big-info {
         border-left: 2px solid orange;
         grid-column: 2/3;
         grid-row: 1/3;
