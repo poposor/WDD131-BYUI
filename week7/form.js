@@ -45,7 +45,7 @@ function displayError(msg) {
 
 function isCardNumberValid(number) {
 	// normally we would contact a credit card service...but we don't know how to do that yet. So to keep things simple we will only accept one number
-	return number === '6234123412341234'
+	return number === '1234123412341234'
 }
 
 function submitHandler(event) {
@@ -58,7 +58,7 @@ function submitHandler(event) {
   if (paymentSelect.value === 'creditCard') {
     // Check if it's numeric and valid in one go
     
-      if (!/^6\d{15}$/.test(cardNum)) {
+      if (!/^\d{16}$/.test(cardNum)) {
       errorMsg += 'Card number must be 16 digits\n';
       } else if (!isCardNumberValid(cardNum)) {
         errorMsg += 'Card number is not valid\n';
