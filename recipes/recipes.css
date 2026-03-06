@@ -1,0 +1,30 @@
+body {
+    display: flex;
+    justify-content: center;
+    max-width: 1000px;
+}
+header {
+    display: flex;
+}
+h1 {
+    font-family: 'Amatic SC', cursive;
+    font-size: 2.5rem;
+    height: 50%;
+}
+footer {
+    display: flex;
+    justify-content: space-between;
+}
+.social{
+    flex-wrap: nowrap;
+    display: flex;
+}
+.social a {
+    margin: 2px;
+    display: inline-block;
+    height: 32px;
+}
+img {
+    width: 100%;
+    height: 100%;
+}
