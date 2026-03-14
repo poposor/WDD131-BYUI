@@ -45,6 +45,12 @@ header {
     margin: 2px;
     border: none;
 }
+#search button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
 #search img {
     height: 2em;
     width: auto;
