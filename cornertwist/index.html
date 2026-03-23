@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corner Twist</title>
+    <link rel="icon" href="./images/roughCube.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./styles/site-plan.css">
+    <link rel="stylesheet" href="./styles/timer.css">
+</head>
+<body>
+    
+    <header>
+        <img id="logo" src="./images/roughCube.svg">
+        <div id="headerObj">
+            <div id="tabs">
+                <a href=""><div>Timer</div></a>
+                <a href="./graph"><div>Graph</div></a>
+            </div>
+            <div id="scramble">
+                <select name="scrambleType" id="typeSelect">
+                    <option value="3x3">3x3</option>
+                    <option value="4x4">4x4</option>
+                </select>
+            </div>
+        </div>
+        <p id="scrambleDisplay">
+                U' L F2 R U' D R F' U B2 R D2 R2 D2 L' U2 B2 L' B2 R2
+        </p>
+        
+    </header>
+
+    <main>
+        <label for="groupSelect">Group:</label>
+        <select name="group" id="groupSelect">
+            <option value="1">1</option>
+        </select>
+        <div id="results">
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>Time</th>
+                    <th>Ao5</th>
+                    <th>Ao12</th>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td>2233</td>
+                    <td>13.65</td>
+                    <td>14.73</td>
+                    <td>16.12</td>
+                </tr>
+            </table>
+        </div>
+
+        <p id="timer">
+            13.65   
+        </p>
+
+        <img id="scrambledCube" src="./images/placeholderCube.svg">
+    </main>
+
+    <footer>
+
+    </footer>
+
+</body>
+</html>

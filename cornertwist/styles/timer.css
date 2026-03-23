@@ -1,0 +1,46 @@
+body {
+    padding: 0;
+}
+header {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+#logo {
+    margin-top: 5px;
+    width: 15%;
+    aspect-ratio: 1 1;
+}
+
+#headerObj {
+    padding: 0 10px 0 10px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+}
+#tabs {
+    width: 100%;
+    display: flex;
+}
+#tabs a {
+    text-decoration: none;
+    width: 50%;
+}
+#tabs div{
+    background-color: #7c7c7c;
+    color: black;
+    border: 1px solid black;
+    padding: 10px;
+}
+#scramble {
+    display: flex;
+    width: 100%;
+}
+#scramble select{
+    width: 100%;
+    padding: 10px;
+}
+#scrambleDisplay {
+    margin: 0 auto;
+}
