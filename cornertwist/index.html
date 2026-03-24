@@ -31,34 +31,37 @@
     </header>
 
     <main>
-        <label for="groupSelect">Group:</label>
-        <select name="group" id="groupSelect">
-            <option value="1">1</option>
-        </select>
-        <div id="results">
-            <table>
-                <tr>
-                    <th>#</th>
-                    <th>Time</th>
-                    <th>Ao5</th>
-                    <th>Ao12</th>
-                </tr>
-            </table>
-            <table>
-                <tr>
-                    <td>2233</td>
-                    <td>13.65</td>
-                    <td>14.73</td>
-                    <td>16.12</td>
-                </tr>
-            </table>
-        </div>
 
         <p id="timer">
             13.65   
         </p>
 
-        <img id="scrambledCube" src="./images/placeholderCube.svg">
+        <div id="bottom">
+            <div id="group">
+                <label for="groupSelect">Group:</label>
+                <select name="group" id="groupSelect">
+                    <option value="1">1</option>
+                </select>
+            </div>
+
+            <div id="results">
+                <table>
+                    <tr>
+                        <th>#</th>
+                        <th>Time</th>
+                        <th>Ao5</th>
+                        <th>Ao12</th>
+                    </tr>
+                    <tr>
+                        <td>2233</td>
+                        <td>13.65</td>
+                        <td>14.73</td>
+                        <td>16.12</td>
+                    </tr>
+                </table>
+            </div>
+            <img id="scrambledCube" src="./images/placeholderCube.svg">
+        </div>
     </main>
 
     <footer>

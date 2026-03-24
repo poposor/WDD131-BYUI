@@ -1,5 +1,6 @@
 body {
     padding: 0;
+    max-width: none;
 }
 header {
     display: flex;
@@ -43,4 +44,100 @@ header {
 }
 #scrambleDisplay {
     margin: 0 auto;
+}
+
+#timer {
+    font-size: 5em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0;
+}
+
+#bottom {
+    height: 30%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 50% 50%;
+    position: absolute;
+    bottom: 0px;
+}
+
+#results {
+    grid-column: 2/3;
+    grid-row: 1/3;
+    border: 1px solid black;
+
+}
+#results table {
+    border-collapse: collapse;
+    text-align: center;
+    width: 100%;
+}
+#results td, th {
+    border: 1px solid black;
+    height: 1em;
+}
+
+#scrambledCube {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 30%;
+}
+
+#group {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 5px;
+    justify-content: center;
+    font-size: 2em;
+    
+}
+#group select {
+    width: 100%;
+    padding: 10px;
+}
+
+@media screen and (min-width: 900px) {
+    header {
+    }
+    #bottom {
+        display: grid;
+        grid-template-columns: 30% 40% 30%;
+        grid-template-rows: 2em auto;
+        height: 60%;
+    }
+    #group {
+        grid-column: 1/2;
+        grid-row: 1/2;
+        display: flex;
+        flex-wrap: nowrap;
+        width: 100%;
+        height: 100%;
+        font-size: 1.5em;
+        align-items: center;
+        margin: 0;
+
+    }
+    #group select {
+        height: 100%;
+        padding: 0;
+        padding-left: 10px;
+    }
+    #results {
+        margin-top: 5px;
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+    #scrambledCube {
+        grid-column: 3/4;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+    }
 }
