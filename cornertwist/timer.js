@@ -106,10 +106,10 @@ let groups = [
     {
         name: "1",
         solves: [
-            {
-                time: 13.65*1000,
-                scramble: "U' R2 U F2 U' B2 D' F2 B L D' R D' B' F' U' B2 L2",
-            },
+            // {
+            //     time: 13.65*1000,
+            //     scramble: "U' R2 U F2 U' B2 D' F2 B L D' R D' B' F' U' B2 L2",
+            // },
         ],
     },
 ];
@@ -117,6 +117,11 @@ let groupIndex = 0;
 const timer = document.getElementById("timer");
 let timerStarted = false;
 const scramble = document.getElementById("scrambleDisplay");
+
+function newScramble(){
+    scramble.innerText = builtIn[Math.floor(Math.random()*builtIn.length)];
+};
+newScramble();
 document.addEventListener("keydown", (event) => {
     if (event.key === " ") {
         event.preventDefault();
@@ -128,6 +133,7 @@ document.addEventListener("keydown", (event) => {
             updateSolves();
             clearInterval(runTimer);
             timer.style.color = 'lime';
+            newScramble();
         }
         else{
             timer.style.color = 'red';
@@ -137,7 +143,7 @@ document.addEventListener("keydown", (event) => {
 document.addEventListener("keyup", (event) => {
     if (event.key === " ") {
         event.preventDefault();
-        if(timer.style.color == 'red'){
+        if(timer.style.color == 'red' && groups[groupIndex].solves != undefined){
             timerStarted = true;
             timerTime = Date.now();
             runTimer = setInterval(updateTimer, 10);
@@ -158,7 +164,7 @@ groupSelect.addEventListener('change', (e) => {
     if(selectedGroup == "New"){
         newG = prompt("Name for new group:");
         console.log(newG);
-        if(groups.findIndex(i => i.name == newG) == -1 && newG != "New" && newG != "Delete"){
+        if(groups.findIndex(i => i.name == newG) == -1 && newG != "New" && newG != "Delete" && newG != null && newG != ''){
             groups.push(
                 {
                     name: newG,
@@ -166,21 +172,32 @@ groupSelect.addEventListener('change', (e) => {
                 }
             );
         }
+        groupIndex = groups.length-1;
         updateGroupSelect();
+        updateSolves();
     }
     else if(selectedGroup == "Delete"){
         delG = prompt("Name of group to be deleted:");
         delI = groups.findIndex(i => i.name == delG);
         if(delI > -1){
-            groups.pop(delI);
+            groups.splice(delI, 1);
+        }
+        console.log(groups);
+        console.log("deleted group "+delG+" at index "+delI);
+        console.log("current group index "+groupIndex);
+        if(delI <= groupIndex){
+            groupIndex--;
         }
         updateGroupSelect();
+        updateSolves();
+        
     }
     else {
         newI = groups.findIndex(i => i.name == selectedGroup);
         if(newI !== -1){
             groupIndex = newI;
             console.log("changed group to index "+groupIndex);
+            updateSolves();
         }
         else{
             console.log("group not found");
@@ -194,7 +211,7 @@ function updateGroupSelect(){
         groupSelect.innerHTML += `<option value="${i.name}">${i.name}</option>`;
     });
     groupSelect.innerHTML += groupSelectOptions;
-    groupSelect.selectedIndex = groups.length-1;
+    groupSelect.selectedIndex = groupIndex;
 }
 const resultsTable = document.querySelector("#results table");
 function calcAo(index, size){
@@ -228,4 +245,23 @@ function updateSolves(){
             <th>Ao5</th>
             <th>Ao12</th>
         </tr>` + resultsTable.innerHTML;
+    saveSolves();
+}
+
+function saveSolves(){
+    localStorage.setItem('groups', JSON.stringify(groups));
+    localStorage.setItem('selectedGroup', groups[groupIndex].name);
+}
+function loadSolves(){
+    groups = JSON.parse(localStorage.getItem('groups'));
+    groupIndex = groups.findIndex(i => i.name == localStorage.getItem('selectedGroup'));
+    if(groupIndex < 0){
+        groupIndex = 0;
+    }
+}
+
+if(localStorage.getItem('groups') !== null){
+    loadSolves();
+    updateGroupSelect();
+    updateSolves();
 }
