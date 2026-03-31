@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cornertwist Graph</title>
+    <link rel="stylesheet" href="../styles/site-plan.css">
+    <link rel="stylesheet" href="../styles/standard.css">
+    <link rel="stylesheet" href="../styles/graph.css">
+
+</head>
+<body>
+    <header>
+        <label for="groupSelect">Group</label>
+        <select id="groupSelect">
+
+        </select>
+        <select id="graphType">
+            <option value="12">Last 12</option>
+            <option value="50" selected>Last 50</option>
+            <option value="100">Last 100</option>
+            <option value="all">All-Time</option>
+        </select>
+        <div id="headerObj">
+        <div id="tabs">
+            <a href="../"><div>Timer</div></a>
+            <a href=""><div>Graph</div></a>
+        </div>
+        <img id="logo" src="../images/roughCube.svg">
+    </div>
+    </header>
+
+    <canvas id="canvas" width="600" height="400"></canvas>
+    <script src="graph.js"></script>
+</body>
+</html>

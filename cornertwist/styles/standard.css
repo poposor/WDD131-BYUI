@@ -1,0 +1,19 @@
+body {
+    padding: 0;
+    max-width: none;
+}
+#tabs {
+    width: 100%;
+    display: flex;
+}
+#tabs a {
+    text-decoration: none;
+    width: 50%;
+    text-align: center;
+}
+#tabs div{
+    background-color: #7c7c7c;
+    color: black;
+    border: 1px solid black;
+    padding: 10px;
+}
