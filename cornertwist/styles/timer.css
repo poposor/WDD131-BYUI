@@ -27,6 +27,7 @@ header {
 }
 #scrambleDisplay {
     margin: 0 auto;
+    color: black;
 }
 
 #timer {
