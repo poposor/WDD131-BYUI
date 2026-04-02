@@ -216,9 +216,19 @@ function updateGroupSelect(){
 const resultsTable = document.querySelector("#results table");
 function calcAo(index, size){
     let times = groups[groupIndex].solves.slice(index-(size-1), index+1);
-    let aoMax = Math.max(...times.map(t => t.time));
-    let aoMin = Math.min(...times.map(t => t.time));
-    times = times.filter(t => t.time !== aoMax && t.time !== aoMin);
+    let dropCount = 1;
+    if(size > 12){
+        dropCount = Math.ceil(size*0.05);
+    }
+    while(dropCount > 0){
+        let aoMax = Math.max(...times.map(t => t.time));
+        let aoMin = Math.min(...times.map(t => t.time));
+        times = times.filter(t => t.time !== aoMax && t.time !== aoMin);
+        dropCount--;
+    }
+    // let aoMax = Math.max(...times.map(t => t.time));
+    // let aoMin = Math.min(...times.map(t => t.time));
+    // times = times.filter(t => t.time !== aoMax && t.time !== aoMin);
     if(times.length < size-2){
         return "DNF";
     }

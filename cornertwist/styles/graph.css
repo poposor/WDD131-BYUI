@@ -1,18 +1,30 @@
 body{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 header{
-    font-size: 2em;
     display: flex;
     justify-content: left;
     align-items: center;
+    width: 100%;
     height: 2em;
-    width: 50%;
-    padding: 0;
+    padding: 3.2px;
+    padding-left: 10px;
 }
 #headerObj {
+    position: absolute;
+    top: 0;
+    right: 0;
     display: flex;
     flex-wrap: wrap;
+    max-width: 300px;
+}
+#headerObj img{
+    width: 100%;
+    margin-top: 5px;
+}
+
+canvas {
 }
