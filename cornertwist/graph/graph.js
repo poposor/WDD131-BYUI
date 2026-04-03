@@ -95,6 +95,17 @@ function drawGraph(){
     spacing = 500/groupTimes.length;
     heightStart = Math.min(...groupTimes);
     heightSpacing = 300/(Math.max(...groupTimes)-heightStart);
+    ctx.fillStyle = "#FFFFFF";
+    ctx.fillRect(50, 50, 500, 1);
+    ctx.fillText((heightStart/1000).toFixed(2), 5, 50);
+    ctx.fillRect(50, 350, 500, 1);
+    ctx.fillText((Math.max(...groupTimes)/1000).toFixed(2), 5, 350);
+
+    for(let i = 1; i < 5; i++){
+        ctx.fillStyle = "#5c5c5c";
+        ctx.fillRect(50, 50+i*60, 500, 1);
+    }
+
     groupTimes.forEach((e, i) => {
         ctx.fillStyle = "#FFB200";
         ctx.beginPath();
@@ -105,9 +116,14 @@ function drawGraph(){
 
 function updateStats(){
     group = groups[groupIndex].solves
-    best.innerText = "Best: "+(Math.min(...group.map(t => t.time))/1000).toFixed(2);
-    worst.innerText = "Worst: "+(Math.max(...group.map(t => t.time))/1000).toFixed(2);
-    ao.innerText = "ao: "+calcAo(group.length-1,Math.min(aoSize,group.length));
+    group = group.slice(group.length-1-(Math.min(aoSize,group.length)-1), group.length);
+    let bestTime = (Math.min(...group.map(t => t.time))/1000).toFixed(2);
+    best.innerText = "Best: "+bestTime;
+    let worstTime = (Math.max(...group.map(t => t.time))/1000).toFixed(2);
+    worst.innerText = "Worst: "+worstTime;
+    let aoTime = calcAo(group.length-1,Math.min(aoSize,group.length));
+    ao.innerText = "ao: "+aoTime;
+
 
     drawGraph();
 }
