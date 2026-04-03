@@ -97,9 +97,10 @@ function drawGraph(){
     heightSpacing = 300/(Math.max(...groupTimes)-heightStart);
     ctx.fillStyle = "#FFFFFF";
     ctx.fillRect(50, 50, 500, 1);
-    ctx.fillText((heightStart/1000).toFixed(2), 5, 50);
+    ctx.fillText((Math.max(...groupTimes)/1000).toFixed(2), 5, 50);
     ctx.fillRect(50, 350, 500, 1);
-    ctx.fillText((Math.max(...groupTimes)/1000).toFixed(2), 5, 350);
+    ctx.fillText((heightStart/1000).toFixed(2), 5, 350);
+
 
     for(let i = 1; i < 5; i++){
         ctx.fillStyle = "#5c5c5c";

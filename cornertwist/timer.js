@@ -1,4 +1,4 @@
-
+// import { calcAo } from "./helper.js";
 
 const builtIn = {
     "3x3": [
@@ -267,7 +267,7 @@ function updateTimer(){
 const groupSelect = document.getElementById("groupSelect");
 const groupSelectOptions = `<option value="New">New</option><option value="Delete">Delete</option>`;
 groupSelect.addEventListener('change', (e) => {
-    selectedGroup = e.target.value;
+    let selectedGroup = e.target.value;
     if(selectedGroup == "New"){
         newG = prompt("Name for new group:");
         console.log(newG);
@@ -300,7 +300,7 @@ groupSelect.addEventListener('change', (e) => {
         
     }
     else {
-        newI = groups.findIndex(i => i.name == selectedGroup);
+        let newI = groups.findIndex(i => i.name == selectedGroup);
         if(newI !== -1){
             groupIndex = newI;
             console.log("changed group to index "+groupIndex);
@@ -351,8 +351,8 @@ function updateSolves(){
         <tr>
             <td>${i+1}</td>
             <td>${(solve.time/1000).toFixed(2)}</td>
-            <td>${calcAo(i,5)}</td>
-            <td>${calcAo(i,12)}</td>
+            <td>${calcAo(i, 5)}</td>
+            <td>${calcAo(i, 12)}</td>
         </tr>` + resultsTable.innerHTML;
     });
     resultsTable.innerHTML = `
