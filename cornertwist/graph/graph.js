@@ -105,9 +105,11 @@ function drawGraph(){
 
 function updateStats(){
     group = groups[groupIndex].solves
+    ao.innerText = "ao: "+calcAo(group.length-1,Math.min(aoSize,group.length));
+    group = group.slice(groups[groupIndex].solves.length-1-(Math.min(aoSize,groups[groupIndex].solves.length)-1), groups[groupIndex].solves.length);
     best.innerText = "Best: "+(Math.min(...group.map(t => t.time))/1000).toFixed(2);
     worst.innerText = "Worst: "+(Math.max(...group.map(t => t.time))/1000).toFixed(2);
-    ao.innerText = "ao: "+calcAo(group.length-1,Math.min(aoSize,group.length));
+    // ao.innerText = "ao: "+calcAo(group.length-1,Math.min(aoSize,group.length));
 
     drawGraph();
 }
