@@ -1,5 +1,9 @@
-// import { calcAo } from "./helper.js";
 
+const example = [
+    {"name":"Example",
+    "solves":[{"time":17656,"scramble":"U' L F2 R U' D R F' U B2 R D2 R2 D2 L' U2 B2 L' B2 R2"},{"time":19239,"scramble":"U2 B2 D2 B2 U' L2 F2 D B2 R2 L' B2 U' R' B F R2 U' F2 U"},{"time":20272,"scramble":"F D2 F D2 B2 R2 F' D2 F R2 L F2 U2 F' L D' F U' F"},{"time":27904,"scramble":"L' D' B2 L' F' L' D R B2 L2 D2 R' U2 L F2 U2 L' B2 D2 U'"},{"time":23059,"scramble":"U2 B2 D2 B2 U' L2 F2 D B2 R2 L' B2 U' R' B F R2 U' F2 U"},{"time":14821,"scramble":"D2 R2 D' F2 R2 D R2 D' R2 B2 U' B' D' L' B' R D L B' U' B'"},{"time":14080,"scramble":"L F' L U2 F2 R2 U B2 D' L2 D U2 L2 B2 L B R D2 L' B' D"},{"time":16144,"scramble":"R L2 D' R2 U' L2 R2 B2 D' B2 D F2 U F L' B R' U L B'"},{"time":16914,"scramble":"U D' R' F2 U B' D2 R' F D2 R2 D L2 U' F2 U R2 L2 U' R2 F2"},{"time":15047,"scramble":"L' U2 B' R2 F2 L2 B' D2 B' U2 F R2 D' R' U2 R2 U B2 R U2"},{"time":19802,"scramble":"F' R2 D' B2 F2 D U2 B2 D2 R2 U' B L' F2 L2 D L' F U B2"}]}
+];
+console.log(example);
 const builtIn = {
     "3x3": [
     "U' R2 U F2 U' B2 D' F2 B L D' R D' B' F' U' B2 L2",
@@ -220,6 +224,8 @@ let groups = [
 let groupIndex = 0;
 const timer = document.getElementById("timer");
 let timerStarted = false;
+let timerTime = 0;
+let runTimer = null;
 const scramble = document.getElementById("scrambleDisplay");
 const scrambleType = document.getElementById("typeSelect");
 scrambleType.addEventListener('change', (e) => {
@@ -269,7 +275,7 @@ const groupSelectOptions = `<option value="New">New</option><option value="Delet
 groupSelect.addEventListener('change', (e) => {
     let selectedGroup = e.target.value;
     if(selectedGroup == "New"){
-        newG = prompt("Name for new group:");
+        let newG = prompt("Name for new group:");
         console.log(newG);
         if(groups.findIndex(i => i.name == newG) == -1 && newG != "New" && newG != "Delete" && newG != null && newG != ''){
             groups.push(
@@ -284,8 +290,8 @@ groupSelect.addEventListener('change', (e) => {
         updateSolves();
     }
     else if(selectedGroup == "Delete"){
-        delG = prompt("Name of group to be deleted:");
-        delI = groups.findIndex(i => i.name == delG);
+        let delG = prompt("Name of group to be deleted:");
+        let delI = groups.findIndex(i => i.name == delG);
         if(delI > -1){
             groups.splice(delI, 1);
         }
@@ -379,6 +385,13 @@ function loadSolves(){
 
 if(localStorage.getItem('groups') !== null){
     loadSolves();
+    updateGroupSelect();
+    updateSolves();
+}
+else {
+    groups = example;
+    console.log(groups);
+    console.log("no groups found, using example");
     updateGroupSelect();
     updateSolves();
 }

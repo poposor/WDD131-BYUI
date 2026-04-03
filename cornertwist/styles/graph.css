@@ -31,6 +31,12 @@ header{
         display: flex;
     }
 }
-
-canvas {
+@media screen and (max-width: 700px) {
+    img {
+        display: none;
+    }
+    canvas {
+        max-width: 600px;
+        width: 100%;
+    }
 }
